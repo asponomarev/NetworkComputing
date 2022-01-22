@@ -42,7 +42,7 @@ public class Blossom implements Describable {
 
     @Override
     public String getDescription() {
-        return " blossom has " + petalsAmount + " " + blossomColour + " petal(s)";
+        return " blossom has " + petalsAmount + " " + blossomColour.getColourName() + " petal(s)";
     }
 
 }

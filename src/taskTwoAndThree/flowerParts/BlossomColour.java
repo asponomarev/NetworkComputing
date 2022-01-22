@@ -1,5 +1,7 @@
 package taskTwoAndThree.flowerParts;
 
+import java.util.Locale;
+
 public enum BlossomColour {
     RED,
     ORANGE,
@@ -8,5 +10,9 @@ public enum BlossomColour {
     CYAN,
     BLUE,
     MAGENTA,
-    WHITE
+    WHITE;
+
+    public String getColourName() {
+        return this.toString().toLowerCase(Locale.ROOT);
+    }
 }
