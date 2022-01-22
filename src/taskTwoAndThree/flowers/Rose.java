@@ -4,17 +4,19 @@ import taskTwoAndThree.flowerParts.BlossomColour;
 
 public class Rose extends Flower{
 
+    // статические константы
     private static final int DEFAULT_ROSE_LEAVES_AMOUNT = 32;
     private static final int DEFAULT_ROSE_THORNS_AMOUNT = 10;
 
-    private int thornsAmount;
+    private int thornsAmount; // поле для хранения количества колючек
 
-    public Rose() {
-        super();
+    public Rose() { // конструктор по умолчанию
+        super(); // вызов родительского конструктора по умолчанию
         leavesAmount = DEFAULT_ROSE_LEAVES_AMOUNT;
         thornsAmount = DEFAULT_ROSE_THORNS_AMOUNT;
     }
 
+    // пример перегрузки конструктора
     public Rose(double stemHeight,
                 double stemDiameter,
                 int blossomPetalsAmount,
@@ -22,32 +24,33 @@ public class Rose extends Flower{
                 int leavesAmount,
                 int thornsAmount)
     {
+        // вызов родительского конструктора
         super(stemHeight, stemDiameter, blossomPetalsAmount, blossomColour);
         this.leavesAmount = leavesAmount;
         this.thornsAmount = thornsAmount;
     }
 
-    public int getThornsAmount() {
+    public int getThornsAmount() { // функция получения количества колючек
         return thornsAmount;
     }
 
-    public void setThornsAmount(int thornsAmount) {
-        this.thornsAmount = Math.max(thornsAmount, 0);
+    public void setThornsAmount(int thornsAmount) { // функция установки количества колючек
+        this.thornsAmount = Math.max(thornsAmount, 0); // пример использования функции из пакета Math
     }
 
-    @Override
+    @Override // реализация виртуального метода
     public FlowerType getFlowerType() {
         return FlowerType.ROSE;
     }
 
-    @Override
+    @Override // реализация метода из интерфейса
     public String getDescription() {
         return "Rose" + blossom.getDescription();
     }
 
-    @Override
+    @Override // переопределение метода из интерфейса
     public void grow(int growRate) {
-        super.grow(growRate);
+        super.grow(growRate); // вызов реализации этого метода в родительском классе
         thornsAmount *= growRate;
     }
 
@@ -59,11 +62,11 @@ public class Rose extends Flower{
         }
     }
 
-    public void cutThorns() {
+    public void cutThorns() { // пример перегрузки метода
         setThornsAmount(thornsAmount - 1);
     }
 
-    public void cutThorns(int thornsToCut) {
+    public void cutThorns(int thornsToCut) { // пример перегрузки метода
         setThornsAmount(thornsAmount - thornsToCut);
     }
 
